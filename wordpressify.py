@@ -8,6 +8,7 @@ from pandocfilters import toJSONFilter, Math
 def wordpressify(key, value, format_, meta):
     '''
     Convert math formulas so they work with WordPress.
+    When writing to HTML, use -m in pandoc so the $s are preserved
     '''
     if key == 'Math':
         return Math(value[0], "LaTeX " + value[1])
