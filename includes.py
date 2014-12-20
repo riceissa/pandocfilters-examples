@@ -7,6 +7,8 @@ from pandocfilters import toJSONFilter, CodeBlock
 
 def includes(key, value, format_, meta):
     '''
+    If a CodeBlock has the attribute "include", replace the contents of
+    the CodeBlock with the contents of the file given.
     '''
     if key == 'CodeBlock':
         [id_, classes, namevals], contents = value
