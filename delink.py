@@ -3,7 +3,7 @@
 # This is a Python (using pandocfilters) implementation of delink.hs
 # from http://johnmacfarlane.net/pandoc/scripting.html#removing-links
 
-from pandocfilters import toJSONFilter, Para, Emph
+from pandocfilters import toJSONFilter
 
 def delink(key, value, format_, meta):
     '''
