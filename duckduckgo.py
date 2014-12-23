@@ -5,7 +5,8 @@ from pandocfilters import toJSONFilter, stringify, Link
 def duck(key, value, format_, meta):
     '''
     If a link is of the form "!STRING", use the !-expression to search
-    DuckDuckGo.
+    DuckDuckGo.  So for instance [Fishmans](!w) would search Wikipedia
+    for "Fishmans".
     '''
     if key == 'Link':
         [txt, [url, attr]] = value
