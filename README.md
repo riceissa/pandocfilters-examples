@@ -5,7 +5,8 @@ So far, most of the filters are just Python implementations of the Haskell examp
 
 When writing filters, printing out the abstract syntax tree using `-t native`
 or `-t json` on Pandoc is helpful. All a filter does it manipulate that JSON
-file to get another JSON file, which feeds back into Pandoc.
+file to get another JSON file, which feeds back into Pandoc. The trick is to
+not mess up the JSON, because if you do Pandoc won't like it.
 
 For [Lua filters](http://pandoc.org/lua-filters.html), the same trick works,
 but there is no intermediate JSON step, so it takes more imagination to see
