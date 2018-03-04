@@ -4,6 +4,12 @@
 -- are ordinarily untouched (they are passed through as MediaWiki
 -- RawInlines).
 
+-- Unfortunately, as of March 2018 it seems like Pandoc's MediaWiki
+-- reader does not parse the "name" attribute of <ref> tags. This
+-- means there is no way to associate repeated ref citations with the
+-- same content. In fact, all of the repeated instances (like <ref
+-- name="citename" />) appear as blank footnotes.
+
 -- This is trim3 from http://lua-users.org/wiki/StringTrim
 function trim(s)
    return s:gsub("^%s+", ""):gsub("%s+$", "")
@@ -40,6 +46,12 @@ end
 
 function printCiteWeb(t)
    local result = ""
+   if t["last"] ~= nil then
+      result = result .. t["last"] .. ", "
+   end
+   if t["first"] ~= nil then
+      result = result .. t["first"] .. ". "
+   end
    if t["author"] ~= nil then
       result = result .. t["author"] .. ". "
    end
