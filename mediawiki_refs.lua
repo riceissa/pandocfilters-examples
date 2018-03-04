@@ -39,8 +39,6 @@ function parseTemplate(refstring)
 end
 
 function printCiteWeb(t)
-   io.stderr:write(dump(t))
-   io.stderr:write("DATE: " .. t["date"])
    local result = ""
    if t["author"] ~= nil then
       result = result .. t["author"] .. ". "
@@ -54,7 +52,7 @@ function printCiteWeb(t)
    if t["date"] ~= nil then
       result = result .. t["date"] .. ". "
    end
-   return result
+   return trim(result)
 end
 
 function RawInline(elem)
